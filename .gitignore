@@ -1,3 +1,5 @@
 LICENSE
 README.rst
 vendor/
+app/cache
+app/logs
