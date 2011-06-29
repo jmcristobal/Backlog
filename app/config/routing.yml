@@ -1,0 +1,5 @@
+SpartanBacklogBundle:
+    resource: "@SpartanBacklogBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

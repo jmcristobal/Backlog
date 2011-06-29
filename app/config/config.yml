@@ -47,13 +47,13 @@ doctrine:
 doctrine_mongodb:
     connections:
         default:
-            server: mongodb://localhost:27017
+            server: mongodb://127.0.0.1:27017
             options:
                     connect: true
-    default_database: test_database
+    default_database: backlog
     document_managers:
         default:
-            auto_mapping: true        
+            auto_mapping: true
 
 # Swiftmailer Configuration
 swiftmailer:
