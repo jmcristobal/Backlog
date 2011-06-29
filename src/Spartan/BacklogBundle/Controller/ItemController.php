@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Spartan\BacklogBundle\Document\Item;
 use Symfony\Component\HttpFoundation\Response;
 
-class DefaultController extends Controller
+class ItemController extends Controller
 {
     /**
      * @Route("/{name}")
