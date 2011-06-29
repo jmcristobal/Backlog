@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ItemController extends Controller
 {
     /**
-     * @Route("/{name}")
+     * @Route("/item/{name}")
      * @Template()
      */
     public function indexAction($name)
@@ -28,7 +28,7 @@ class ItemController extends Controller
     }
 
     /**
-     * @Route("/new/{name}")
+     * @Route("/item/new/{name}")
      * @Template()
      */
 	public function newAction($name)
@@ -42,5 +42,18 @@ class ItemController extends Controller
 		$dm->flush();
 				
 		return array('name' => $name);
+	}
+	
+    /**
+     * @Route("/item/list/")
+     * @Template()
+     */
+	public function listAction()
+	{
+		$dm = $this->get('doctrine.odm.mongodb.document_manager');
+		$repository = $dm->getRepository('SpartanBacklogBundle:Item');
+		$products = $repository->findAll();
+		var_dump($products);
+		return $products->getFields();		
 	}
 }
