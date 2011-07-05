@@ -10,22 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ItemController extends Controller
 {
-    /**
-     * @Route("/item/{name}")
-     * @Template()
-     */
-    public function indexAction($name)
-    {
-        $item = new Item();
-		$item->setName($name);
-		$item->setStatus(false);
-		
-		$dm = $this->get('doctrine.odm.mongodb.document_manager');
-		$dm->persist($item);
-		$dm->flush();
-		
-		return array('name' => $name);
-    }
 
     /**
      * @Route("/item/new/{name}")
@@ -45,15 +29,14 @@ class ItemController extends Controller
 	}
 	
     /**
-     * @Route("/item/list/")
+     * @Route("/items")
      * @Template()
      */
 	public function listAction()
 	{
 		$dm = $this->get('doctrine.odm.mongodb.document_manager');
 		$repository = $dm->getRepository('SpartanBacklogBundle:Item');
-		$products = $repository->findAll();
-		var_dump($products);
-		return $products->getFields();		
+		$items = $repository->findAll();
+		return array('items' => $items);
 	}
 }

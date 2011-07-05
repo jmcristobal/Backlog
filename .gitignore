@@ -3,3 +3,4 @@ README.rst
 vendor/
 app/cache
 app/logs
+*.DS_Store
