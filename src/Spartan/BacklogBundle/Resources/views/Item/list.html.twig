@@ -1,29 +1,13 @@
-<!DOCTYPE html> 
-<html> 
-	<head> 
-		<title>{% block title %}Backlog Bundle{% endblock %}</title> 
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css" />
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
-		<script type="text/javascript" src="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.js"></script>
-		<meta charset="utf-8"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1">	
-	</head> 
-<body> 
-<div data-role="page">
-	<div data-role="header" data-position="fixed">
-		<h1>Backlog Items</h1>
-	</div><!-- /header -->
+{% extends 'SpartanBacklogBundle::layout.html.twig' %}
 
+{% block title %}Items{% endblock %}
+
+{% block body %}
 	<div data-role="content">	
 		<ul data-role="listview" data-theme="g">
 			{% for item in items %}
  				<li> {{ item.name }} </li>
 			{% endfor %}
 		</ul>
-	</div><!-- /content -->
-
-	<div data-role="footer" data-position="fixed">
-		<h4>Backlog Items</h4>
-	</div><!-- /footer -->
-</div><!-- /page -->
-</body>
+	</div>
+{% endblock %}
