@@ -1,1 +1,13 @@
-{{ name }}
+{% extends 'SpartanBacklogBundle::layout.html.twig' %}
+
+{% block body %}
+    <form action="{{ path('_item_new') }}" method="POST" id="new_form">
+        {{ form_errors(form) }}
+
+        {{ form_row(form.name) }}
+        {{ form_row(form.status) }}
+
+        {{ form_rest(form) }}
+        <input type="submit" value="Send" class="symfony-button-grey" />
+    </form>
+{% endblock %}

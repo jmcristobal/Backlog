@@ -11,6 +11,12 @@
     </head>
     <body>
         <div id="content" data-role="page">
+            {% if app.session.flash('notice') %}
+                <div class="flash-message">
+                    <em>Notice</em>: {{ app.session.flash('notice') }}
+                </div>
+            {% endif %}
+	
 			{% block header %}{% endblock %}
             {% block body %}{% endblock %}
         </div>
